@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Color Recommender</title>
+    <link rel="stylesheet" type="text/css" href="style/style.css">
+    <script type="text/javascript" src="scripts/jquery-1.11.2.min.js"></script>
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+    <script type="text/javascript" src="scripts/colorLib.js"></script>
+    <script type="text/javascript" src="scripts/ntc.js"></script>
+    <script type="text/javascript" src="scripts/colorWheel.js"></script>
+
+</head>
+<body>
+    <div id="container">
+        <div id="heading">
+            <h1 align="center">Color Recommender</h1>
+        </div>
+        <div id="controlPane">
+            <div id="data_upload" class = "section">
+                <p align="center">Upload CSV file</p>
+                <form action="javascript:;" id="the_form">
+                    <input type="file" id="the_file" required="required" accept=".csv"/>
+                    <input id="the_submit" type="submit" value="Upload" class="btn"/>
+                </form>
+                <div id="file_info"></div>
+            </div>
+            <div id="columns_list" class = "section">
+                <p align="center">Columns</p>
+            </div>
+            <div id="data_features" class = "section">
+                <p align="center">Data Features</p>
+            </div>
+            <div id="favourite_color" class = "section">
+                <p align="center">Pick Your Favourite Color</p>
+                <br>
+                <input id="block_1" type="button" onclick="return update_color('#CC4444')" class="style_1"/>
+                <input id="block_2" type="button" onclick="return update_color('#D9500E')" class="style_2"/>
+                <input id="block_3" type="button" onclick="return update_color('#E28911')" class="style_3"/>
+                <input id="block_4" type="button" onclick="return update_color('#E6B418')" class="style_4"/>
+                <input id="block_5" type="button" onclick="return update_color('#EDD81A')" class="style_5"/>
+                <input id="block_6" type="button" onclick="return update_color('#B0BF21')" class="style_6"/>
+                <input id="block_7" type="button" onclick="return update_color('#3B7A2E')" class="style_7"/>
+                <input id="block_8" type="button" onclick="return update_color('#42888F')" class="style_8"/>
+                <input id="block_9" type="button" onclick="return update_color('#2C52BB')" class="style_9"/>
+                <input id="block_10" type="button" onclick="return update_color('#6344A1')" class="style_10"/>
+                <input id="block_11" type="button" onclick="return update_color('#5D2486')" class="style_11"/>
+                <input id="block_12" type="button" onclick="return update_color('#A22E7F')" class="style_12"/>
+            </div>
+
+        </div>
+
+        <div class="tabs" id="content">
+            <ul id="tab_view" class="tab-links" ></ul>
+            <div  class="tab-content" style="width: 100%;height: 100%" >
+                <div id="color_wheel" >
+                    <canvas id="picker" width="925" height="384"></canvas>
+                </div>
+                <div id="color_code" align="left">
+                    <label><input id="hexbox" type="radio" name="mode" value="hex" checked> HEX </label>
+                    <label><input id="rgbbox" type="radio" name="mode" value="rgb"> RGB </label>
+                </div>
+                <div id="color_index"></div>
+                <div id=chart_area" >
+                    <select id="charttype" name="chart_type">
+                        <!--<option value="defaultchart" selected>-- Select Chart Type --</option>-->
+                        <option value="bar">Bar Chart</option>
+                        <option value="pie">Pie Chart</option>
+                    </select>
+                    <div id="color_chart"></div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <script type="text/javascript" src="scripts/main.js"></script>
+
+
+</body>
+</html>
